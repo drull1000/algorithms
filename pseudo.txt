@@ -1,0 +1,10 @@
+func countFalse(array, currentIndex, count)
+    se currentIndex = tamanho(array)
+        retornar 0
+    se senão array[currentIndex] = "F"
+        retornar tamanho(array) - count
+    senão
+        se array[currentIndex] != "F"
+        retornar countFalse(array, currentIndex+1, count+1)
+
+        
