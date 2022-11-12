@@ -1,4 +1,4 @@
-m = 13
+m = 7
 odd = False
 if m % 2 != 0:
     odd = True
@@ -6,11 +6,8 @@ if m % 2 != 0:
 t = [[0] * (m+1) for i in range(0,m+1)]
 
 def torneio(m):
-    if m == 2:
+    if m == 1:
         t[1][1] = 1
-        t[1][2] = 2
-        t[2][1] = 2
-        t[2][2] = 1
     elif m % 2 != 0:
         torneio(m+1)
     else:
@@ -23,7 +20,10 @@ def torneio(m):
 
         for i in range(1,p+1):
             for j in range(1,p+1):
-                t[i+p][j] = t[i][j]+p
+                if t[i][j]+p > m and odd == False:
+                    t[i+p][j] = t[i][j]+p-1
+                else:
+                    t[i+p][j] = t[i][j]+p
                 t[i][j+p] = m-(j-i+m) % p
                 t[m-(j-i+m) % p][j+p] = i
 torneio(m)
