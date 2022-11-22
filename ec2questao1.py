@@ -6,11 +6,11 @@ n = 20
 def acharSoma(array, n, soma):
     if soma == 0:
         return 1
-    if n <= 0:
+    elif n <= 0:
         return 0
-    if tabela[n - 1][soma] != -1:
+    elif tabela[n - 1][soma] != -1:
         return tabela[n - 1][soma]
-    if array[n - 1] > soma:
+    elif array[n - 1] > soma:
         tabela[n - 1][soma] = acharSoma(array, n - 1, soma)
         return tabela[n - 1][soma]
     else:
