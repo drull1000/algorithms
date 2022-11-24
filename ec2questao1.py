@@ -5,23 +5,15 @@ subset = [0 for i in range(soma+1)]
 n = len(array)
 
 def acharSoma(array, n, soma):
-    if soma == 0 or soma in array:
-        return 1
-
-    elif n <= 0 or soma < 0:
-        return 0
-
-    elif tabela[n - 1][soma] != -1:
-        return tabela[n - 1][soma]
-
+    if (soma == 0 or soma in array): return 1
+    elif (n <= 0 or soma < 0): return 0
+    elif (tabela[n - 1][soma] != -1): return tabela[n - 1][soma]
     elif array[n - 1] > soma:
         tabela[n - 1][soma] = acharSoma(array, n - 1, soma)
         return tabela[n - 1][soma]
-
     else:
         tabela[n - 1][soma] = acharSoma(array, n - 1, soma)
-        if n > subset[soma] and n not in subset:
-            subset[soma] = n
+        if (n > subset[soma] and n not in subset): subset[soma] = n
         return tabela[n - 1][soma] or acharSoma(array, n - 1, soma - array[n - 1])
 
 if acharSoma(array, n, soma) == 1:
