@@ -16,6 +16,11 @@ def verifyMessage(n, message, code):
     #remove all the -1's from the array
     table = list(filter((-1).__ne__, table))
 
+    #----------------------------
+    # WE ALREADY HAVE THE ARRAY, WE JUST NEED TO SEE IF THE VALUE IS GOING TO 
+    # DECREASE AND CHANGE THE VALUE OF OUR N AS IT DOES.
+    #----------------------------
+
     for i in range(len(table)-1): 
         # if the current item is lesser than the next one
         # and different from -1
