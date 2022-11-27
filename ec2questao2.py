@@ -1,6 +1,7 @@
 n = int(input("Qual a quantidade de vezes que o padrão se repete? "))
 message = input("Qual a sua mensagem? ")
 code = input("Qual o código? ")
+
 if 0 > n > 10000:
     print("Padrão grande demais. O limite é 10000")
     exit()
@@ -31,5 +32,6 @@ def verifyMessage(n, table):
         i+=1
     if (n == 0): return 1
     else: return 0
+
 if (verifyMessage(n-1,table)): print("Y")
 else: print("N")
