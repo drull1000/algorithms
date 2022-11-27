@@ -1,0 +1,37 @@
+int n = input("Qual a quantidade de vezes que o padrão se repete? ")
+str message = input("Qual a sua mensagem? ")
+str code = input("Qual o código? ")
+
+se 0 > n > 10000:
+    imprime("Padrão grande demais. O limite é 10000")
+    sair()
+se 0 > tamanho(message) > 10000:
+    imprime("Mensagem grande demais. O limite é 10000")
+    sair()
+se 0 > tamanho(code) > 1000:
+    imprime("Código grande demais. O limite é 1000")
+    sair()
+
+função generateTable(message, code):
+    int array table = [-1 para i até (tamanho(message))]
+    para i até (tamanho(code)):
+        para j até (tamanho(message)):
+            se code[i] == message[j]:
+                table[j] = i
+    remover(table, -1)
+    retornar table
+table = generateTable(message, code)
+
+função verseyMessage(n, table):
+    i = 0
+    enquanto i < tamanho(table)-1:
+        se table[i+1] <= table[i]:
+            table.remover(i+1)
+            n -= 1
+            i = 0
+        i+=1
+    se (n == 0): retornar 1
+    senão: retornar 0
+
+se (verifyMessage(n-1,table)): imprime("Y")
+senão: imprime("N")
