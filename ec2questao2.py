@@ -12,26 +12,26 @@ if 0 > len(code) > 1000:
     print("Código grande demais. O limite é 1000")
     exit()
 
-def generateTable(message, code):
-    table = [-1 for i in range(len(message))]
+def generateArray(message, code):
+    array = [-1 for i in range(len(message))]
     for i in range(len(code)):
         for j in range(len(message)):
             if code[i] == message[j]:
-                table[j] = i
-    table = list(filter((-1).__ne__, table))
-    return table
-table = generateTable(message, code)
+                array[j] = i
+    array = list(filter((-1).__ne__, array))
+    return array
+array = generateArray(message, code)
 
-def verifyMessage(n, table):
+def verifyMessage(n, array):
     i = 0
-    while i < len(table)-1:
-        if table[i+1] <= table[i]:
-            table.pop(i+1)
+    while i < len(array)-1:
+        if array[i+1] <= array[i]:
+            array.pop(i+1)
             n -= 1
             i = 0
         i+=1
     if (n == 0): return 1
     else: return 0
 
-if (verifyMessage(n-1,table)): print("Y")
+if (verifyMessage(n-1,array)): print("Y")
 else: print("N")
