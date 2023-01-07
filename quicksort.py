@@ -13,7 +13,7 @@ def quickSort(array, low, high):
 		pi = partition(array, low, high)
 		quickSort(array, low, pi - 1)
 		quickSort(array, pi + 1, high)
-data = [1, 7, 4, 1, 10, 9, -2]
+data = [1, 7, 4, 1, 10, 9, -2, 3, 55, 2, 100, -100]
 print("Unsorted Array")
 print(data)
 size = len(data)

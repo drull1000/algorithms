@@ -1,5 +1,5 @@
 valores = [1,5,10,25,50,100]
-troco = 1000
+troco = 10
 tipos = len(valores)
 memo = [[-1 for i in range(0, 10000)] for c in range(0,10000)]
 
